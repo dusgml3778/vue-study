@@ -18,8 +18,8 @@ export default {
   methods:{
     addTodo:function(){
       if(this.newTodoItem !== ""){
-      var obj = {completed :false, item :this.newTodoItem};
-      localStorage.setItem(this.newTodoItem,JSON.stringify(obj));
+      //this.$emit("이벤트 이름", 인자) ->상위컴포넌트에 보낼 이벤트 랑 인자
+      this.$emit("addTodoItem", this.newTodoItem)
       this.clearInput();
       }
     },
@@ -36,7 +36,7 @@ input:focus {
   outline: none;
 }
 .inputBox {
-  background: white;
+  background: rgb(221, 221, 218);
   height: 50px;
   line-height: 50px;
   border-radius: 5px;
